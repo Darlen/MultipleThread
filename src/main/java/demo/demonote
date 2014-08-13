@@ -1,0 +1,9 @@
+demo包下的 是demo例子，完全是网上的例子
+http://blog.csdn.net/cloudyxuq/article/details/6941404
+
+1.createthread:
+i:总结 ：从上面结果可以看出Thread-0和Thread-1两条线程输出的i变量都不连续（注意：i变量是FirestThread的实例属性，而不是局部变量，但因为程序每次创建线程都会创建一个FirstThread对象，所以Thread-0和Thread-1不能共享该实例属性）。
+  使用继承Thread类的方法来创建线程类，多条线程之间无法共享线程类的实例变量。
+ii:根据源代码中Thread类构造方法  Ruanalbe接口对象target只能作为参数传递到Thread构造方法中，所以多个线程可以共用一个Runnable对象，因为都用同一个Runnable对象所以在Runnable实现类的实例变量也可以共享了。
+   所以Runable非常适合多个相同线程来处理同一份资源的情况。
+
